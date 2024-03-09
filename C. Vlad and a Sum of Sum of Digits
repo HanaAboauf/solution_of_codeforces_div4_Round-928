@@ -1,0 +1,33 @@
+//Hana Hany Ibrahim
+//FCAI
+
+#include <bits/stdc++.h>
+using namespace std;
+
+const int  MAX=2*10e5;
+
+int res[MAX];
+
+int sumdigit(int x) {
+    int res = 0;
+    while (x) {
+        res += (x % 10);
+        x /= 10;
+    }
+    return res;
+}
+void solve() {
+    int x;
+    cin >> x;
+    cout << res[x] << '\n';
+}
+int main() {
+    for (int i = 1; i < MAX; i++) {
+        res[i] = res[i - 1] + sumdigit(i);
+    }
+    int t;
+    cin >> t;
+    for (int i = 1; i <= t; i++){
+        solve();
+    }
+}
